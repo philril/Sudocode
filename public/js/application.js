@@ -12,7 +12,15 @@ $(document).ready(function() {
     }
   })
 
-  var boardArr = boards['board'].split("")
+  var boardArr = (function(){
+    arr = boards['board'].split("")
+    for (var i=0;i<arr.length;i++) {
+      if (arr[i] === "-") {
+        arr[i] = ""
+      }
+    }
+    return arr
+  })()
   var arr = $('form').serializeArray();
 
   for (var i=0;i<arr.length;i++) {
