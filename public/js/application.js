@@ -1,7 +1,39 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  var boards
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $.ajax({
+    type: "GET",
+    url: "/board",
+    async: false,
+  }).done(function(response){
+    boards = {
+      board: response['board_string'],
+      solvedBoard: response['solved_board']
+    }
+  })
+
+  var boardArr = boards['board'].split("")
+  var arr = $('form').serializeArray();
+
+  for (var i=0;i<arr.length;i++) {
+      $($('input')[i]).val(boardArr[i])
+    }
+
+  $('input').keyup(function(){
+    var string = stringify()
+    var solved = boards['solvedBoard']
+    if (string == solved) {
+    alert("You Win!")
+    } else {console.log("no")}
+  })
+
+  var stringify = function(){
+    var arr = $('form').serializeArray();
+    var strArr = []
+    for (var i=0;i<arr.length;i++) {
+      strArr.push(arr[i]['value'])
+    }
+    return strArr.join("")
+  }
+
 });

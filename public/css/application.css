@@ -13,4 +13,16 @@
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;
+  text-align: center;
+  vertical-align: middle;
+  line-height:50px;
+}
+
+input {
+  border:none;
+  height:50px;
+  width:50px;
+  text-align: center;
+  vertical-align: middle;
+  line-height:50px;
 }
