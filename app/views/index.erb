@@ -1,8 +1,17 @@
 <div id="wrapper">
-<% 9.times do %>
+<form>
+
+<% i = 1 %>
+<% while i <= 81 %>
   <% 9.times do %>
-    <div class="box">hey</div>
+    <% 9.times do %>
+      <div class="row">
+      <div class="box"><input onClick="this.select();"type="text" name="<%= i %>" value="<%= i %>"></input></div>
+      <% i += 1 %>
+      </div>
+    <% end %>
   <% end %>
 <% end %>
 
+</form>
 </div>

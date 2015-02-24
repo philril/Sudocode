@@ -1,3 +1,5 @@
+helpers do
+
 class Sudoku
   attr_reader :board_array
 
@@ -106,3 +108,5 @@ class Sudoku
     end #end first do
   end #end solve method
 end #end class
+
+end #end helper
