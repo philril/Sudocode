@@ -1,17 +1,26 @@
-<div id="wrapper">
-<form>
-
-<% i = 1 %>
-<% while i <= 81 %>
-  <% 9.times do %>
-    <% 9.times do %>
-      <div class="row">
-      <div class="box"><input onClick="this.select();"type="text" name="box <%= i %>"></input></div>
-      <% i += 1 %>
-      </div>
+<table id="wrapper">
+  <tr>
+    <form>
+    <% i = 1 %>
+    <% while i <= 81 %>
+      <% 9.times do %>
+        <% 9.times do %>
+          <td class="cell"><input onClick="this.select();"type="text" name="cell <%= i %>"></input></td>
+          <% i += 1 %>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
+  </form>
+  </tr>
+</table>
 
-</form>
+<button type="submit" id="solve" value="Solve">Solve</button>
+
+<div id="percentDisplay">
+  <% x = 0 %>
+  <% while x <= 100 %>
+    <div class="percentCell" id="<%= x %>"></div>
+    <% x+=1 %>
+  <% end %>
 </div>
+<div id="percent"></div>

@@ -1,28 +1,53 @@
 #wrapper {
-  height:450px;
-  width:450px;
+  height:453px;
+  width:453px;
   border:1px solid black;
+  /*margin:0 auto;*/
 }
 
-.box {
+.cell {
   height:50px;
   width:50px;
   float: left;
   border:1px solid black;
   display:inline-block;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   text-align: center;
   vertical-align: middle;
   line-height:50px;
 }
 
-input {
+.cell input {
   border:none;
   height:50px;
   width:50px;
   text-align: center;
   vertical-align: middle;
   line-height:50px;
+  box-sizing: border-box;
+}
+
+#percent {
+  width: 454px;
+  text-align: center;
+  padding:5px;
+}
+
+#percentDisplay {
+ height:25px;
+ width: 454px;
+ border:1px solid black;
+}
+
+.percentCell {
+  float:left;
+  width:4.5px;
+  height:25px;
+  /*border:1px solid black;*/
+  display:inline-block;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
