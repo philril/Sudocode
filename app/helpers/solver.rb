@@ -20,7 +20,7 @@ class Sudoku
     !to_s.include?("-")
   end
 
-  #The following methods are to be used by #solve
+  #The following methods are to be used by #solve:
 
   # #find_all_empty_cells returns the location of the first empty cell as an array
   def find_all_empty_cells

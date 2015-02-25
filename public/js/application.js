@@ -12,8 +12,9 @@ $(document).ready(function() {
     }
   })
 
+  //Put board
   var boardArr = (function(){
-    arr = boards['board'].split("")
+    var arr = boards['board'].split("")
     for (var i=0;i<arr.length;i++) {
       if (arr[i] === "-") {
         arr[i] = ""
@@ -21,21 +22,63 @@ $(document).ready(function() {
     }
     return arr
   })()
+
   var arr = $('form').serializeArray();
 
   for (var i=0;i<arr.length;i++) {
-      $($('input')[i]).val(boardArr[i])
-    }
+    $($('input')[i]).val(boardArr[i])
+  }
+  //End put board
 
   $('input').keyup(function(){
+    solve();
+    displayPercent();
+    percentBar();
+  })
+
+  $('#solve').on('click', function(){
+    var sBoard = boards['solvedBoard'].split("")
+    for (var i=0;i<arr.length;i++) {
+      $($('input')[i]).val(sBoard[i])
+    }
+    solve()
+  })
+
+  function percentBar(){
+    var percent = parseInt(percentDone());
+    console.log(percent)
+    var i = 0
+    while (i<=percent) {
+      $('.percentCell#'+i).css("background-color","red");
+      i++;
+    }
+  }
+
+  function percentDone(){
+    var arr = $('form').serializeArray();
+    var counter = 0
+    for (var i=0;i<arr.length;i++) {
+      if (arr[i]['value'] !== "") {
+        counter +=1
+      }
+    }
+    return Math.floor(((counter/81)*100))
+  }
+
+  function displayPercent(){
+    var percent = percentDone() + "% complete"
+    $('#percent').html(percent)
+  }
+
+  function solve(){
     var string = stringify()
     var solved = boards['solvedBoard']
     if (string == solved) {
-    alert("You Win!")
+    alert("Solved!")
     } else {console.log("no")}
-  })
+  }
 
-  var stringify = function(){
+  function stringify(){
     var arr = $('form').serializeArray();
     var strArr = []
     for (var i=0;i<arr.length;i++) {
