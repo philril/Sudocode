@@ -51,3 +51,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
+
+td:nth-child(3); {
+  border-right:10px solid green;
+}
