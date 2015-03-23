@@ -12,7 +12,7 @@ $(document).ready(function() {
     }
   })
 
-  //Put board
+  //set up board (refactor into its own function?)
   var boardArr = (function(){
     var arr = boards['board'].split("")
     for (var i=0;i<arr.length;i++) {
@@ -28,7 +28,7 @@ $(document).ready(function() {
   for (var i=0;i<arr.length;i++) {
     $($('input')[i]).val(boardArr[i])
   }
-  //End put board
+  //End set up board
 
   $('input').keyup(function(){
     solve();
@@ -41,7 +41,9 @@ $(document).ready(function() {
     for (var i=0;i<arr.length;i++) {
       $($('input')[i]).val(sBoard[i])
     }
-    solve()
+    solve();
+    displayPercent();
+    percentBar();
   })
 
   function percentBar(){
